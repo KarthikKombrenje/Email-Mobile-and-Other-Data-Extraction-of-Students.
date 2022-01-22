@@ -28,23 +28,29 @@ if(yn=='n'):
 elif(yn=='y'):
     def save_info():
         firstname_info = firstname.get()
+        fname = [firstname_info]
         lastname_info = lastname.get()
+        lname = [lastname_info]
         phone_info = phone.get()
-        PhRegex.append(phone_info)
+        PhRegex.append(int(phone_info))
         email_info = email.get()
         EmRegex.append(email_info)
         college_info = college.get()
+        col=[college_info]
         usn_info = usn.get()
         ColRegRegex.append(usn_info)
         course_info = course.get()
         StreamRegex.append(course_info)
         print(firstname_info,lastname_info,phone_info,email_info,college_info,usn_info,course_info)
+        EmRegex.sort()
+        ColRegRegex.sort()
+        StreamRegex.sort()
         file = open("output.txt","w+")
-        file.write("\n firstname: "+str(firstname_info))
-        file.write("\n lastname: "+str(lastname_info))
+        file.write("\n firstname: "+str(fname))
+        file.write("\n lastname: "+str(lname))
         file.write("\n phone: "+str(PhRegex))
         file.write("\n email: "+str(EmRegex))
-        file.write("\n college: "+str(college_info))
+        file.write("\n college: "+str(col))
         file.write("\n usn: "+str(ColRegRegex))
         file.write("\n course :"+str(StreamRegex))
         file.close()
